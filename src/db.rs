@@ -12,14 +12,14 @@ macro_rules! db_layout {
             ),+
         }
         impl $name {
-            $v fn new<E: ::rancor::Source>(db: &::fjall::Database) -> Result<Self, E> {
+            $v fn new<E: $crate::rancor::Source>(db: &$crate::fjall::Database) -> Result<Self, E> {
                 Ok(
                     Self {
                         $(
                             $ks: {
                                 let $ks =
                                     ::std::result::Result::map_err(
-                                        ::fjall::Database::keyspace(db, ::std::stringify!($ks), ::std::default::Default::default)
+                                        $crate::fjall::Database::keyspace(db, ::std::stringify!($ks), ::std::default::Default::default)
                                     )?;
                                 $( $cons )*
                             },
