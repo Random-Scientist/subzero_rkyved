@@ -1,0 +1,15 @@
+[package]
+name = "subzero_rkyved"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ahash = "0.8.12"
+byteview = "0.10.0"
+fjall = "3.0.1"
+quick_cache = "0.6.18"
+rkyv = { version = "0.8.14", features = ["unaligned"] }
+rancor = { git = "https://github.com/Random-Scientist/rancor", rev = "c6b4daa81e89ea84e0954643f9185464a1f7cee0" }
+
+[patch.crates-io]
+rancor = { git = "https://github.com/Random-Scientist/rancor", rev = "c6b4daa81e89ea84e0954643f9185464a1f7cee0" }
