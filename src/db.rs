@@ -19,7 +19,8 @@ macro_rules! db_layout {
                             $ks: {
                                 let $ks =
                                     ::std::result::Result::map_err(
-                                        $crate::fjall::Database::keyspace(db, ::std::stringify!($ks), ::std::default::Default::default)
+                                        $crate::fjall::Database::keyspace(db, ::std::stringify!($ks), ::std::default::Default::default),
+                                        <E as $crate::rancor::Source>::new
                                     )?;
                                 $( $cons )*
                             },
